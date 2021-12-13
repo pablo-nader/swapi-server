@@ -11,7 +11,7 @@ const vehicleSeeder = require('../models/seeders/vehicleSeeder');
 // GET ALL
 // /api/install
 router.get('/', (req, res) => {
-    createTables(true, true);
+    createTables(false, true);
     res.send('Creating Tables...');
     // if (status === 'ok') {
     //     console.log(msg);
