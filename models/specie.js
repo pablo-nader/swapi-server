@@ -5,7 +5,7 @@ const Specie = sequelize.define('Specie', {
     // Model attributes are defined here
     name: {
       type: DataTypes.STRING(50),
-      allowNull: false,
+      allowNull: true,
       unique: true
     },
     classification: { type: DataTypes.STRING(50) },
@@ -16,6 +16,11 @@ const Specie = sequelize.define('Specie', {
     eye_colors: { type: DataTypes.STRING(150) },
     average_lifespan: { type: DataTypes.STRING(10) },
     language: { type: DataTypes.STRING(50) },
+    url: { 
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      unique: true
+    }
 }, {
     timestamps: true,
     updatedAt: "edited",

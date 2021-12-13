@@ -17,7 +17,12 @@ const Vehicle = sequelize.define('Vehicle', {
     passengers: { type: DataTypes.STRING(10) },
     cargo_capacity: { type: DataTypes.STRING(50) },
     consumables: { type: DataTypes.STRING(50) },
-    vehicle_class: { type: DataTypes.STRING(100) }
+    vehicle_class: { type: DataTypes.STRING(100) },
+    url: { 
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      unique: true
+    }
 }, {
     timestamps: true,
     updatedAt: "edited",

@@ -19,7 +19,12 @@ const Starship = sequelize.define('Starship', {
     consumables: { type: DataTypes.STRING(50) },
     hyperdrive_rating: { type: DataTypes.STRING(50) },
     MGLT: { type: DataTypes.STRING(50) },
-    starship_class: { type: DataTypes.STRING(100) }
+    starship_class: { type: DataTypes.STRING(100) },
+    url: { 
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      unique: true
+    }
 }, { 
     timestamps: true,
     updatedAt: "edited",

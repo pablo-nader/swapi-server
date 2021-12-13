@@ -13,6 +13,11 @@ const Film = sequelize.define('Film', {
     director: { type: DataTypes.STRING(100) },
     producer: { type: DataTypes.STRING(100) },
     release_date: { type: DataTypes.DATEONLY },
+    url: { 
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      unique: true
+    }
 }, {
     timestamps: true,
     updatedAt: "edited",

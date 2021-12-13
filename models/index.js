@@ -1,4 +1,7 @@
+// import Sequelize
 const sequelize = require('../config/db');
+
+// import Models
 const Character = require('./character');
 const Film = require('./film');
 const Planet = require('./planet');
@@ -7,11 +10,38 @@ const Starship = require('./starship');
 const Vehicle = require('./vehicle');
 const User = require('./user');
 
+// import Seeders
+const seeders = [
+    require('../models/seeders/characterSeeder'),
+    require('../models/seeders/filmSeeder'),
+    require('../models/seeders/planetSeeder'),
+    require('../models/seeders/specieSeeder'),
+    require('../models/seeders/starshipSeeder'),
+    require('../models/seeders/vehicleSeeder')
+];
+
+// Setting relations
 Planet.hasMany(Character);
-Character.belongsTo(Planet);
+Character.belongsTo(Planet, {
+    foreignKey: {
+      name: 'homeworld'
+    },
+    references: {
+        model: Planet, 
+        key: 'url'
+    }
+});
 
 Planet.hasMany(Specie);
-Specie.belongsTo(Planet);
+Specie.belongsTo(Planet, {
+    foreignKey: {
+      name: 'homeworld'
+    },
+    references: {
+        model: Planet, 
+        key: 'url'
+    }
+});
 
 Planet.belongsToMany(Film, { through: 'FilmPlanet'});
 Film.belongsToMany(Planet, { through: 'FilmPlanet'});
@@ -34,7 +64,42 @@ Starship.belongsToMany(Character, { through: 'CharacterStarship' });
 Vehicle.belongsToMany(Film, { through: 'FilmVehicle' });
 Film.belongsToMany(Vehicle, { through: 'FilmVehicle' });
 
-sequelize.sync({force: true})
-// sequelize.sync()
-.then(msg => console.log("OK ==> ", msg))
-.catch(error => ("ERROR ==> ", error));  
+// fn to load Seeders
+const loadSeeder = (seeder) => {
+    // define model 
+    let model = seeder[0];
+    // split seeder to remove arrays values
+    let data = seeder[1].map(e => {
+        let obj = {};
+        
+        for (const key in e) {
+            if (!Array.isArray(e[key])) {
+                obj[key] = e[key];
+            }
+        }
+        return obj;
+    });
+
+    // Insert data
+    model.bulkCreate(data)
+    .then(msg => console.log(msg))
+    .catch(error => console.log(error));
+}
+
+// fn to create Tables and load data
+const createTables = (forced = false, loadSeeders = false) => {
+    // create all tables and relations
+    sequelize.sync({force: forced})
+    .then(res => {
+        console.log(res);
+        // insert data
+        if (loadSeeders) {
+            seeders.forEach(e => loadSeeder(e));
+        }
+    })
+    .catch(res => {
+        console.log(res);
+    });
+}
+
+module.exports = createTables;

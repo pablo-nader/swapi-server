@@ -24,6 +24,11 @@ const Character = sequelize.define('Character', {
         key: 'id'
       }
     },
+    url: { 
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      unique: true
+    }
 }, {
     timestamps: true,
     updatedAt: "edited",

@@ -8,7 +8,7 @@ const Planet = sequelize.define('Planet', {
       allowNull: false,
       unique: true
     },
-    rotation: { type: DataTypes.STRING(50) },
+    rotation_period: { type: DataTypes.STRING(50) },
     orbital_period: { type: DataTypes.STRING(50) },
     diameter: { type: DataTypes.STRING(50) },
     climate: { type: DataTypes.STRING(100) },
@@ -16,6 +16,11 @@ const Planet = sequelize.define('Planet', {
     terrain: { type: DataTypes.STRING(100) },
     surface_water: { type: DataTypes.STRING(20) },
     population: { type: DataTypes.STRING(20) },
+    url: { 
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      unique: true
+    }
 }, {
     timestamps: true,
     updatedAt: "edited",

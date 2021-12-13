@@ -1,19 +1,24 @@
 const express = require('express');
 const conn = require('./config/db');
+const cors = require('cors');
+const { urlencoded } = require("express");
 
 // create server
 const app = express();
 // set port
 const PORT = process.env.PORT || 4000;
 
+app.use(cors());
 // body parser
-app.use(express.json({extended: true}));
-
+app.use(urlencoded({extended: true}));
+app.use(express.json());
 // set routes
 // // api/users/
 // app.use('/api/users', require('./routes/users'));
 // api/characters/
 app.use('/api/characters', require('./routes/characters'));
+// Install App
+app.use('/api/install', require('./routes/install'));
 // // api/films/
 // app.use('/api/films', require('./routes/films'));
 // // api/planets/
