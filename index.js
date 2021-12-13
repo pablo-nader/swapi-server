@@ -15,8 +15,7 @@ app.use(express.json());
 // set routes
 // // api/users/
 // app.use('/api/users', require('./routes/users'));
-// api/characters/
-app.use('/api/characters', require('./routes/characters'));
+
 // Install App
 app.use('/api/install', require('./routes/install'));
 // // api/films/
@@ -27,8 +26,12 @@ app.use('/api/install', require('./routes/install'));
 // app.use('/api/species', require('./routes/species'));
 // // api/starships/
 // app.use('/api/starships', require('./routes/starships'));
-// // api/vehicles/
-// app.use('/api/vehicles', require('./routes/vehicles'));
+
+
+// api/characters/
+app.use('/api/characters', require('./routes/characters'));
+// api/vehicles/
+app.use('/api/vehicles', require('./routes/vehicles'));
 
 app.listen(PORT, () => {
     console.log(`---- SERVER RUNNING AT PORT ${PORT} ----`);
