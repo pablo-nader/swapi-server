@@ -93,9 +93,11 @@ const createTables = (forced = false, loadSeeders = false) => {
     .then(res => {
         console.log(res);
         // insert data
-        if (loadSeeders) {
-            seeders.forEach(e => loadSeeder(e));
-        }
+        setTimeout(() => {
+            if (loadSeeders) {
+                seeders.forEach(e => loadSeeder(e));
+            }
+        }, 500);
     })
     .catch(res => {
         console.log(res);
