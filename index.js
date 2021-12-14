@@ -20,8 +20,7 @@ app.use(express.json());
 app.use('/api/install', require('./routes/install'));
 // // api/films/
 // app.use('/api/films', require('./routes/films'));
-// // api/planets/
-// app.use('/api/planets', require('./routes/planets'));
+
 // // api/species/
 // app.use('/api/species', require('./routes/species'));
 // // api/starships/
@@ -32,6 +31,8 @@ app.use('/api/install', require('./routes/install'));
 app.use('/api/characters', require('./routes/characters'));
 // api/vehicles/
 app.use('/api/vehicles', require('./routes/vehicles'));
+// api/planets/
+app.use('/api/planets', require('./routes/planets'));
 
 app.listen(PORT, () => {
     console.log(`---- SERVER RUNNING AT PORT ${PORT} ----`);
