@@ -3,11 +3,6 @@ const sequelize = require('../config/db');
 
 const Specie = sequelize.define('Specie', {
     // Model attributes are defined here
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
     name: {
       type: DataTypes.STRING(50),
       allowNull: true,

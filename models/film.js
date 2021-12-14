@@ -3,11 +3,6 @@ const sequelize = require('../config/db');
 
 const Film = sequelize.define('Film', {
     // Model attributes are defined here
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
     title: {
       type: DataTypes.STRING(150),
       allowNull: false,
