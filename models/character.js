@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const Planet = require('./planet');
 
 const Character = sequelize.define('Character', {
     // Model attributes are defined here
@@ -17,13 +16,6 @@ const Character = sequelize.define('Character', {
     eye_color: { type: DataTypes.STRING(150) },
     birth_year: { type: DataTypes.STRING(50) },
     gender: { type: DataTypes.STRING(20) },
-    planet_id: { 
-      type: DataTypes.INTEGER,
-      references: {
-        model: Planet,
-        key: 'id'
-      }
-    },
     url: { 
       type: DataTypes.INTEGER,
       allowNull: true,

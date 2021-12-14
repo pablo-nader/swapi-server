@@ -73,7 +73,7 @@ const loadSeeder = (seeder) => {
 // fn to create Tables and load data
 const createTables = (forced = false, loadSeeders = false) => {
     // create all tables and relations
-    sequelize.sync({force: forced})
+    sequelize.sync({alter: forced})
     .then(res => {
         console.log(res);
         // insert data
