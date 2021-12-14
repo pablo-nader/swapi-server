@@ -2,19 +2,19 @@
 const sequelize = require('../config/db');
 
 // import Models
+const Planet = require('./planet');
 const Character = require('./character');
 const Film = require('./film');
-const Planet = require('./planet');
 const Specie = require('./specie');
 const Starship = require('./starship');
 const Vehicle = require('./vehicle');
 const User = require('./user');
 
 // import Seeders
-const seeders = [
-    require('../models/seeders/characterSeeder'),
-    require('../models/seeders/filmSeeder'),
+const seeders = [    
     require('../models/seeders/planetSeeder'),
+    require('../models/seeders/filmSeeder'),
+    require('../models/seeders/characterSeeder'),
     require('../models/seeders/specieSeeder'),
     require('../models/seeders/starshipSeeder'),
     require('../models/seeders/vehicleSeeder')
@@ -22,26 +22,10 @@ const seeders = [
 
 // Setting relations
 Planet.hasMany(Character);
-Character.belongsTo(Planet, {
-    foreignKey: {
-      name: 'homeworld'
-    },
-    references: {
-        model: Planet, 
-        key: 'url'
-    }
-});
+Character.belongsTo(Planet);
 
 Planet.hasMany(Specie);
-Specie.belongsTo(Planet, {
-    foreignKey: {
-      name: 'homeworld'
-    },
-    references: {
-        model: Planet, 
-        key: 'url'
-    }
-});
+Specie.belongsTo(Planet);
 
 Planet.belongsToMany(Film, { through: 'FilmPlanet'});
 Film.belongsToMany(Planet, { through: 'FilmPlanet'});

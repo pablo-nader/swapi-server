@@ -18,15 +18,13 @@ app.use(express.json());
 
 // Install App
 app.use('/api/install', require('./routes/install'));
-// // api/films/
-// app.use('/api/films', require('./routes/films'));
 
-// // api/species/
-// app.use('/api/species', require('./routes/species'));
-// // api/starships/
-// app.use('/api/starships', require('./routes/starships'));
-
-
+// api/films/
+app.use('/api/films', require('./routes/films'));
+// api/species/
+app.use('/api/species', require('./routes/species'));
+// api/starships/
+app.use('/api/starships', require('./routes/starships'));
 // api/characters/
 app.use('/api/characters', require('./routes/characters'));
 // api/vehicles/
