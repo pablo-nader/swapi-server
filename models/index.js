@@ -77,11 +77,9 @@ const createTables = (forced = false, loadSeeders = false) => {
     .then(res => {
         console.log(res);
         // insert data
-        setTimeout(() => {
-            if (loadSeeders) {
-                seeders.forEach(e => loadSeeder(e));
-            }
-        }, 500);
+        if (loadSeeders) {
+            seeders.forEach(e => loadSeeder(e));
+        }
     })
     .catch(res => {
         console.log(res);
