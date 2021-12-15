@@ -94,6 +94,13 @@ exports.create = (req, res) => {
 
 // body
 exports.edit = (req, res) => {
+    const imgFile;
+    if (req.file) {
+        imgFile = req.file.originalname.replace(/[ ()]/g, '');
+    } else {
+        imgFile = false;
+    }
+    
     let id = req.params.id;
     if (!isNaN(id) && id > 0) {
         Character.findAndCountAll({ where: { name: req.body.name }})
@@ -116,6 +123,9 @@ exports.edit = (req, res) => {
                 char.birth_year = req.body.birth_year;
                 char.gender = req.body.gender;
                 char.homeworld = req.body.homeworld;
+                if (imgFile) {
+                    char.image= imgFile;
+                }                
                 char.url = null;
 
                 char.save()

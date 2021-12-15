@@ -68,6 +68,7 @@ exports.get = (req, res) => {
 
 // body
 exports.create = (req, res) => {
+    const imgFile = req.file.originalname.replace(/[ ()]/g, '');
     let vehicle = {
         name: req.body.name,
         model: req.body.model,
@@ -80,6 +81,7 @@ exports.create = (req, res) => {
         cargo_capacity: req.body.cargo_capacity,
         consumables: req.body.consumables,
         vehicle_class: req.body.vehicle_class,
+        image: imgFile,
         url: null
     }
     Vehicle.create(vehicle)
@@ -91,6 +93,13 @@ exports.create = (req, res) => {
 
 // body
 exports.edit = (req, res) => {
+    const imgFile;
+    if (req.file) {
+        imgFile = req.file.originalname.replace(/[ ()]/g, '');
+    } else {
+        imgFile = false;
+    }
+
     let id = req.params.id;
     if (!isNaN(id) && id > 0) {
         Vehicle.findAndCountAll({ where: { name: req.body.name }})
@@ -115,7 +124,9 @@ exports.edit = (req, res) => {
                 vehicle.cargo_capacity = req.body.cargo_capacity;
                 vehicle.consumables = req.body.consumables;
                 vehicle.vehicle_class = req.body.vehicle_class;
-
+                if (imgFile) {
+                    vehicle.image= imgFile;
+                }              
                 vehicle.url = null;
 
                 vehicle.save()
