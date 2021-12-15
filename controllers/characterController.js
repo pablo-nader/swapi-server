@@ -94,7 +94,7 @@ exports.create = (req, res) => {
 
 // body
 exports.edit = (req, res) => {
-    const imgFile;
+    let imgFile;
     if (req.file) {
         imgFile = req.file.originalname.replace(/[ ()]/g, '');
     } else {
