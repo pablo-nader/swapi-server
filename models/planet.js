@@ -16,6 +16,7 @@ const Planet = sequelize.define('Planet', {
     terrain: { type: DataTypes.STRING(100) },
     surface_water: { type: DataTypes.STRING(20) },
     population: { type: DataTypes.STRING(20) },
+    image: { type: DataTypes.STRING(255) },
     url: { 
       type: DataTypes.INTEGER,
       allowNull: true,

@@ -18,6 +18,7 @@ const Vehicle = sequelize.define('Vehicle', {
     cargo_capacity: { type: DataTypes.STRING(50) },
     consumables: { type: DataTypes.STRING(50) },
     vehicle_class: { type: DataTypes.STRING(100) },
+    image: { type: DataTypes.STRING(255) },
     url: { 
       type: DataTypes.INTEGER,
       allowNull: true,

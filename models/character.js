@@ -16,6 +16,7 @@ const Character = sequelize.define('Character', {
     eye_color: { type: DataTypes.STRING(150) },
     birth_year: { type: DataTypes.STRING(50) },
     gender: { type: DataTypes.STRING(20) },
+    image: { type: DataTypes.STRING(255) },
     url: { 
       type: DataTypes.INTEGER,
       allowNull: true,

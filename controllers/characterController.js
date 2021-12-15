@@ -69,6 +69,7 @@ exports.get = (req, res) => {
 
 // body
 exports.create = (req, res) => {
+    const imgFile = req.file.originalname.replace(/[ ()]/g, '');
     let char = {
         name: req.body.name,
         height: req.body.height,
@@ -79,10 +80,13 @@ exports.create = (req, res) => {
         birth_year: req.body.birth_year,
         gender: req.body.gender,
         homeworld: req.body.homeworld,
+        image: imgFile,
         url: null
-    }
+    };
+
     Character.create(char)
     .then(data => {
+        console.log(data);
         res.send(data);
     })
     .catch(error => res.send(error));   

@@ -16,6 +16,7 @@ const Specie = sequelize.define('Specie', {
     eye_colors: { type: DataTypes.STRING(150) },
     average_lifespan: { type: DataTypes.STRING(10) },
     language: { type: DataTypes.STRING(50) },
+    image: { type: DataTypes.STRING(255) },
     url: { 
       type: DataTypes.INTEGER,
       allowNull: false,

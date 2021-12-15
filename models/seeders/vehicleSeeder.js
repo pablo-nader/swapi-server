@@ -17,6 +17,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 1, 5 ], 
         "created": "2014-12-10T15:36:25.724000Z", 
         "edited": "2014-12-20T21:30:21.661000Z", 
+        "image": "sandcrawler.jpg",
         "url": 4
     }, 
     {
@@ -35,6 +36,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 1 ], 
         "created": "2014-12-10T16:01:52.434000Z", 
         "edited": "2014-12-20T21:30:21.665000Z", 
+        "image": "t-16.png",
         "url": 6
     }, 
     {
@@ -53,6 +55,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 1 ], 
         "created": "2014-12-10T16:13:52.586000Z", 
         "edited": "2014-12-20T21:30:21.668000Z", 
+        "image": "landspeeder.jpg",
         "url": 7
     }, 
     {
@@ -71,6 +74,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 1, 2, 3 ], 
         "created": "2014-12-10T16:33:52.860000Z", 
         "edited": "2014-12-20T21:30:21.670000Z", 
+        "image": "TIE-IN.jpg",
         "url": 8
     }, 
     {
@@ -89,6 +93,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 2 ], 
         "created": "2014-12-15T12:22:12Z", 
         "edited": "2014-12-20T21:30:21.672000Z", 
+        "image": "snowspeeder.jpg",
         "url": 14
     }, 
     {
@@ -107,6 +112,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 2, 3 ], 
         "created": "2014-12-15T12:33:15.838000Z", 
         "edited": "2014-12-20T21:30:21.675000Z", 
+        "image": "TIE_Bomber.png",
         "url": 16
     }, 
     {
@@ -125,6 +131,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 2, 3 ], 
         "created": "2014-12-15T12:38:25.937000Z", 
         "edited": "2014-12-20T21:30:21.677000Z", 
+        "image": "AT-AT.jpg",
         "url": 18
     }, 
     {
@@ -143,6 +150,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 2, 3 ], 
         "created": "2014-12-15T12:46:42.384000Z", 
         "edited": "2014-12-20T21:30:21.679000Z", 
+        "image": "AT-ST.png",
         "url": 19
     }, 
     {
@@ -161,6 +169,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 2 ], 
         "created": "2014-12-15T12:58:50.530000Z", 
         "edited": "2014-12-20T21:30:21.681000Z", 
+        "image": "Sail_Barge.png",
         "url": 20
     }, 
     {
@@ -179,6 +188,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 3 ], 
         "created": "2014-12-18T10:44:14.217000Z", 
         "edited": "2014-12-20T21:30:21.684000Z", 
+        "image": "Sail_Barge.png",
         "url": 24
     },
     {
@@ -197,6 +207,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 3 ], 
         "created": "2014-12-18T10:48:03.208000Z", 
         "edited": "2014-12-20T21:30:21.688000Z", 
+        "image": "Bantha-II_Cargo_Skiff.png",
         "url": 25
     }, 
     {
@@ -215,6 +226,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 3 ], 
         "created": "2014-12-18T10:50:28.225000Z", 
         "edited": "2014-12-20T21:30:21.691000Z", 
+        "image": "TIE-IN.jpg",
         "url": 26
     }, 
     {
@@ -233,6 +245,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 3 ], 
         "created": "2014-12-18T11:20:04.625000Z", 
         "edited": "2014-12-20T21:30:21.693000Z", 
+        "image": "Imperial-Speeder-Bike.jpg",
         "url": 30
     }, 
     {
@@ -251,6 +264,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 4, 6 ], 
         "created": "2014-12-19T17:09:53.584000Z", 
         "edited": "2014-12-20T21:30:21.697000Z", 
+        "image": "Vulture-Droid.jpg",
         "url": 33
     }, 
     {
@@ -269,6 +283,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 4 ], 
         "created": "2014-12-19T17:12:04.400000Z", 
         "edited": "2014-12-20T21:30:21.700000Z", 
+        "image": "Multi-Troop-Transport.png",
         "url": 34
     }, 
     {
@@ -287,6 +302,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 4 ], 
         "created": "2014-12-19T17:13:29.799000Z", 
         "edited": "2014-12-20T21:30:21.703000Z", 
+        "image": "Armored-Assault-Tank.jpg",
         "url": 35
     }, 
     {
@@ -305,6 +321,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 4 ], 
         "created": "2014-12-19T17:15:09.511000Z", 
         "edited": "2014-12-20T21:30:21.705000Z", 
+        "image": "Single-Trooper-Aerial-Platform.jpg",
         "url": 36
     }, 
     {
@@ -323,6 +340,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 4 ], 
         "created": "2014-12-19T17:20:36.373000Z", 
         "edited": "2014-12-20T21:30:21.707000Z", 
+        "image": "C-9979.jpg",
         "url": 37
     }, 
     {
@@ -341,6 +359,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 4 ], 
         "created": "2014-12-19T17:37:37.924000Z", 
         "edited": "2014-12-20T21:30:21.710000Z", 
+        "image": "Tribubble-bongo.jpg",
         "url": 38
     }, 
     {
@@ -359,6 +378,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 4 ], 
         "created": "2014-12-20T10:09:56.095000Z", 
         "edited": "2014-12-20T21:30:21.712000Z", 
+        "image": "Sith-speeder.jpg",
         "url": 42
     },
     {
@@ -377,6 +397,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5 ], 
         "created": "2014-12-20T16:24:16.026000Z", 
         "edited": "2014-12-20T21:30:21.714000Z", 
+        "image": "Zephyr-G.jpg",
         "url": 44
     }, 
     {
@@ -395,6 +416,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5 ], 
         "created": "2014-12-20T17:17:33.526000Z", 
         "edited": "2014-12-20T21:30:21.716000Z", 
+        "image": "Koro2.jpg",
         "url": 45
     }, 
     {
@@ -413,6 +435,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5 ], 
         "created": "2014-12-20T17:19:19.991000Z", 
         "edited": "2014-12-20T21:30:21.719000Z", 
+        "image": "XJ-6.jpg",
         "url": 46
     }, 
     {
@@ -431,6 +454,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5, 6 ], 
         "created": "2014-12-20T18:01:21.014000Z", 
         "edited": "2014-12-20T21:30:21.723000Z", 
+        "image": "LAAT.png",
         "url": 50
     }, 
     {
@@ -449,6 +473,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5 ], 
         "created": "2014-12-20T18:02:46.802000Z", 
         "edited": "2014-12-20T21:30:21.725000Z", 
+        "image": "LAAT-c.png",
         "url": 51
     }, 
     {
@@ -467,6 +492,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5, 6 ], 
         "created": "2014-12-20T18:10:07.560000Z", 
         "edited": "2014-12-20T21:30:21.728000Z", 
+        "image": "AT-TE.jpg",
         "url": 53
     }, 
     {
@@ -485,6 +511,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5 ], 
         "created": "2014-12-20T18:12:32.315000Z", 
         "edited": "2014-12-20T21:30:21.731000Z", 
+        "image": "SPHA.jpg",
         "url": 54
     }, 
     {
@@ -503,6 +530,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5 ], 
         "created": "2014-12-20T18:15:20.312000Z", 
         "edited": "2014-12-20T21:30:21.735000Z", 
+        "image": "Flitknot-speeder.jpg",
         "url": 55
     }, 
     {
@@ -521,6 +549,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5, 6 ], 
         "created": "2014-12-20T18:25:44.912000Z", 
         "edited": "2014-12-20T21:30:21.739000Z", 
+        "image": "Neimoidian.jpg",
         "url": 56
     }, 
     {
@@ -539,6 +568,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 5 ], 
         "created": "2014-12-20T18:34:12.541000Z", 
         "edited": "2014-12-20T21:30:21.742000Z", 
+        "image": "Geonosian.png",
         "url": 57
     },
     {
@@ -557,6 +587,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 6 ], 
         "created": "2014-12-20T19:43:54.870000Z", 
         "edited": "2014-12-20T21:30:21.745000Z", 
+        "image": "Tsmeu-6.jpg",
         "url": 60
     }, 
     {
@@ -575,6 +606,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 6 ], 
         "created": "2014-12-20T19:50:58.559000Z", 
         "edited": "2014-12-20T21:30:21.749000Z", 
+        "image": "Emergency-Firespeeder.jpg",
         "url": 62
     }, 
     {
@@ -593,6 +625,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 6 ], 
         "created": "2014-12-20T20:05:19.992000Z", 
         "edited": "2014-12-20T21:30:21.752000Z", 
+        "image": "Droid tri-fighter.png",
         "url": 67
     }, 
     {
@@ -611,6 +644,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 6 ], 
         "created": "2014-12-20T20:20:53.931000Z", 
         "edited": "2014-12-20T21:30:21.756000Z", 
+        "image": "Oevvaor-jet-catamaran.jpg",
         "url": 69
     }, 
     {
@@ -629,6 +663,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 6 ], 
         "created": "2014-12-20T20:21:55.648000Z", 
         "edited": "2014-12-20T21:30:21.759000Z", 
+        "image": "Raddaugh-Gnasp-fluttercraft.jpg",
         "url": 70
     }, 
     {
@@ -647,6 +682,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 6 ], 
         "created": "2014-12-20T20:24:45.587000Z", 
         "edited": "2014-12-20T21:30:21.762000Z", 
+        "image": "Clone-turbo-tank.jpg",
         "url": 71
     }, 
     {
@@ -665,6 +701,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 6 ], 
         "created": "2014-12-20T20:26:55.522000Z", 
         "edited": "2014-12-20T21:30:21.765000Z", 
+        "image": "Corporate-Alliance-tank-droid.jpg",
         "url": 72
     }, 
     {
@@ -683,6 +720,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 6 ], 
         "created": "2014-12-20T20:32:05.687000Z", 
         "edited": "2014-12-20T21:30:21.768000Z", 
+        "image": "Droid-gunship.png",
         "url": 73
     }, 
     {
@@ -701,6 +739,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 6 ], 
         "created": "2014-12-20T20:47:49.189000Z", 
         "edited": "2014-12-20T21:30:21.772000Z", 
+        "image": "AT-RT.jpg",
         "url": 76
     }
 ]];

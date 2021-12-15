@@ -5,31 +5,44 @@ const { urlencoded } = require("express");
 
 // create server
 const app = express();
+
 // set port
 const PORT = process.env.PORT || 4000;
 
+// use cors
 app.use(cors());
+
 // body parser
 app.use(urlencoded({extended: true}));
 app.use(express.json());
-// set routes
-// // api/users/
-// app.use('/api/users', require('./routes/users'));
+
+// static Routes
+app.use('/', express.static(__dirname + '/public'));
 
 // Install App
+// COMMENT THIS LINE AFTER LOAD SEEDERS!!
 app.use('/api/install', require('./routes/install'));
 
-// api/films/
+// Routes
+// users
+// app.use('/api/users', require('./routes/users'));
+
+// films
 app.use('/api/films', require('./routes/films'));
-// api/species/
+
+// species
 app.use('/api/species', require('./routes/species'));
-// api/starships/
+
+// starships
 app.use('/api/starships', require('./routes/starships'));
-// api/characters/
+
+// characters
 app.use('/api/characters', require('./routes/characters'));
-// api/vehicles/
+
+// vehicles
 app.use('/api/vehicles', require('./routes/vehicles'));
-// api/planets/
+
+// planets
 app.use('/api/planets', require('./routes/planets'));
 
 app.listen(PORT, () => {

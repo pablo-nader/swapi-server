@@ -20,6 +20,7 @@ const Starship = sequelize.define('Starship', {
     hyperdrive_rating: { type: DataTypes.STRING(50) },
     MGLT: { type: DataTypes.STRING(50) },
     starship_class: { type: DataTypes.STRING(100) },
+    image: { type: DataTypes.STRING(255) },
     url: { 
       type: DataTypes.INTEGER,
       allowNull: true,
