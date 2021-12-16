@@ -21,7 +21,13 @@ exports.index = (req, res) => {
             res.send({ details: "Not Found"});
         }
     } else if (req.query.name && req.query.name.length > 0) {
-        Character.findAndCountAll({ offset: start, limit: 10 })
+        Character.findAndCountAll({ 
+            where: {
+                name: req.query.name;
+            }
+            // offset: start, 
+            // limit: 10 
+        })
         .then(data => {
             // Setting previous page
             if (page > 1) {
