@@ -1,3 +1,5 @@
+const { Op } = require("sequelize");
+
 const Vehicle = require('../models/vehicle');
 
 // params/query
@@ -5,13 +7,15 @@ exports.index = (req, res) => {
     let url = req.protocol + '://' + req.get('host') + '/api/vehicles/';
     let response = {};
     let start = 0;
+    let queryLimit = 10;
     let page = 1;
     let prev = null;
     let next = null;
+    let searchName = '';
 
     // if query exist
     // ex: /api/vehicle/?page=n
-    if (req.query.page) {
+    if (req.query.page && !req.query.name) {
         if (!isNaN(req.query.page) && req.query.page > 0) {
             start = req.query.page * 10 -10;
             page = Number(req.query.page);
@@ -19,9 +23,20 @@ exports.index = (req, res) => {
             // Bad request
             res.send({ details: "Not Found"});
         }
-    }
+    } else if (req.query.name && req.query.name.length > 0) {
+        searchName = req.query.name;
+        queryLimit = 100;
+    }a
 
-    Vehicle.findAndCountAll({ offset: start, limit: 10 })
+    Vehicle.findAndCountAll({ 
+        where: {
+            name: {
+                [Op.substring]: searchName
+            } 
+        },
+        offset: start, 
+        limit: queryLimit 
+    })
     .then(data => {
         // Setting previous page
         if (page > 1) {

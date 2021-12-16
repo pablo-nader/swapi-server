@@ -1,7 +1,6 @@
 const { Op } = require("sequelize");
 
 const Character = require('../models/character');
-const Planet = require('../models/planet');
 
 // params/query
 exports.index = (req, res) => {
