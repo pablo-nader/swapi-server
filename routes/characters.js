@@ -8,7 +8,7 @@ const characterController = require('../controllers/characterController');
 const multer = require('multer');
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'imgs/characters/');
+    cb(null, 'public/imgs/characters/');
   },
   filename(req, file, cb) {
     cb(null, file.originalname.replace(/[ ()]/g, ''));
