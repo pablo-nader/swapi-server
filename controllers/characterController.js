@@ -1,3 +1,5 @@
+const { Op } = require("sequelize");
+
 const Character = require('../models/character');
 const Planet = require('../models/planet');
 
