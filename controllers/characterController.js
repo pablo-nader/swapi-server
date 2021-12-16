@@ -9,6 +9,7 @@ exports.index = (req, res) => {
     let page = 1;
     let prev = null;
     let next = null;
+    let searchName = '';
 
     // if query exist
     // ex: /api/character/?page=n
@@ -20,9 +21,19 @@ exports.index = (req, res) => {
             // Bad request
             res.send({ details: "Not Found"});
         }
+    } else if (req.query.name && req.query.name.length > 0) {
+        searchName = req.query.name;
     }
 
-    Character.findAndCountAll({ offset: start, limit: 10 })
+    Character.findAndCountAll({ 
+        where: { 
+            name: {
+                [Op.substring]: searchName
+            } 
+        }, 
+        offset: start, 
+        limit: 10 
+    })
     .then(data => {
         // Setting previous page
         if (page > 1) {
