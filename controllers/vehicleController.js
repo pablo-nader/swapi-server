@@ -26,7 +26,7 @@ exports.index = (req, res) => {
     } else if (req.query.name && req.query.name.length > 0) {
         searchName = req.query.name;
         queryLimit = 100;
-    }a
+    }
 
     Vehicle.findAndCountAll({ 
         where: {
