@@ -17,7 +17,7 @@ exports.index = (req, res) => {
     // ex: /api/vehicle/?page=n
     if (req.query.page && !req.query.name) {
         if (!isNaN(req.query.page) && req.query.page > 0) {
-            start = req.query.page * 10 -10;
+            start = req.query.page * queryLimit -queryLimit;
             page = Number(req.query.page);
         } else {
             // Bad request
