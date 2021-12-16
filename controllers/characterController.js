@@ -20,13 +20,32 @@ exports.index = (req, res) => {
             // Bad request
             res.send({ details: "Not Found"});
         }
-    } else if (req.query.name) {
-        if (req.query.name.length > 0) {
-
-        } else {
-            // Bad request
-            res.send({ details: "Not Found"});
-        }
+    } else if (req.query.name && req.query.name.length > 0) {
+        Character.findAndCountAll({ offset: start, limit: 10 })
+        .then(data => {
+            // Setting previous page
+            if (page > 1) {
+                if (page-1 === 1) {
+                    prev = `${url}`;
+                } else {
+                    prev = `${url}?page=${page-1}`;
+                }
+            }
+            // Setting next page
+            if ((page+1) <= Math.ceil(data.count/10)) {
+                next = `${url}?page=${page+1}`;
+            }
+    
+            response.count = data.count;
+            response.prev = prev;
+            response.next = next;
+            response.results = data.rows;
+    
+            res.send(response);
+        })
+        .catch(error => {
+            res.send(error);
+        })
     }
 
     Character.findAndCountAll({ offset: start, limit: 10 })
