@@ -8,58 +8,36 @@ exports.index = (req, res) => {
     let url = req.protocol + '://' + req.get('host') + '/api/characters/';
     let response = {};
     let start = 0;
+    let queryLimit = 10;
     let page = 1;
     let prev = null;
     let next = null;
+    let searchName = '';
 
     // if query exist
     // ex: /api/character/?page=n
-    if (req.query.page) {
+    if (req.query.page && !req.query.name) {
         if (!isNaN(req.query.page) && req.query.page > 0) {
-            start = req.query.page * 10 -10;
+            start = req.query.page * queryLimit -queryLimit;
             page = Number(req.query.page);
         } else {
             // Bad request
             res.send({ details: "Not Found"});
         }
     } else if (req.query.name && req.query.name.length > 0) {
-        Character.findAndCountAll({ 
-            where: {
-                name: {
-                    [Op.substring]: req.query.name
-                }
-                
-            }
-            // offset: start, 
-            // limit: 10 
-        })
-        .then(data => {
-            // Setting previous page
-            if (page > 1) {
-                if (page-1 === 1) {
-                    prev = `${url}`;
-                } else {
-                    prev = `${url}?page=${page-1}`;
-                }
-            }
-            // Setting next page
-            if ((page+1) <= Math.ceil(data.count/10)) {
-                next = `${url}?page=${page+1}`;
-            }
-    
-            response.count = data.count;
-            response.prev = prev;
-            response.next = next;
-            response.results = data.rows;
-    
-            res.send(response);
-        })
-        .catch(error => {
-            res.send(error);
-        })
+        searchName = req.query.name;
+        queryLimit = 100;
     }
 
-    Character.findAndCountAll({ offset: start, limit: 10 })
+    Character.findAndCountAll({ 
+        where: {
+            name: {
+                [Op.substring]: searchName
+            } 
+        },
+        offset: start, 
+        limit: queryLimit 
+    })
     .then(data => {
         // Setting previous page
         if (page > 1) {
