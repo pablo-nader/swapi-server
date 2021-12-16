@@ -9,7 +9,7 @@ exports.index = (req, res) => {
     let page = 1;
     let prev = null;
     let next = null;
-    let searchName = '';
+    let searchName = 'a';
 
     // if query exist
     // ex: /api/character/?page=n
@@ -30,9 +30,7 @@ exports.index = (req, res) => {
             name: {
                 [Op.substring]: searchName
             } 
-        }, 
-        offset: start, 
-        limit: 10 
+        }
     })
     .then(data => {
         // Setting previous page
