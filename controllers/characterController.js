@@ -25,7 +25,7 @@ exports.index = (req, res) => {
         searchName = req.query.name;
     }
 
-    Character.findAndCountAll({ 
+    Character.findAll({ 
         where: { 
             name: {
                 [Op.substring]: searchName
