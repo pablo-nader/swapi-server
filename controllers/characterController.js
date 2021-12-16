@@ -23,7 +23,10 @@ exports.index = (req, res) => {
     } else if (req.query.name && req.query.name.length > 0) {
         Character.findAndCountAll({ 
             where: {
-                name: req.query.name
+                name: {
+                    [Op.substring]: req.query.name
+                }
+                
             }
             // offset: start, 
             // limit: 10 
