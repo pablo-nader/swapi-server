@@ -85,9 +85,8 @@ exports.get = (req, res) => {
 
 // body
 exports.create = (req, res) => {
-    let salt = bycript.genSalt(10);
-    console.log(bycript.hash(req.body.password, salt));
-    
+    console.log(bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)));
+
     let user = {
         name: req.body.name,
         email: req.body.email,
