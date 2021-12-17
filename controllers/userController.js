@@ -118,7 +118,7 @@ exports.create = (req, res) => {
 
         jwt.sign(
             payload, 
-            SECRET, 
+            SECRET_KEY, 
             { expiresIn: 3600 },
             (error, token) => {
                 if (error) throw error;
