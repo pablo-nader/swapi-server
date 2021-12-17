@@ -25,7 +25,7 @@ app.use('/api/install', require('./routes/install'));
 
 // Routes
 // users
-// app.use('/api/users', require('./routes/users'));
+app.use('/api/users', require('./routes/users'));
 
 // films
 app.use('/api/films', require('./routes/films'));
