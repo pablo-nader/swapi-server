@@ -1,8 +1,12 @@
 const { Op } = require("sequelize");
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 // load model
 const User = require('../models/user');
+
+// SECRET KEY 
+const SECRET_KEY = "tukiti-ras-ras-ras";
 
 // params/query
 exports.index = (req, res) => {
@@ -85,18 +89,44 @@ exports.get = (req, res) => {
 
 // body
 exports.create = (req, res) => {
-    console.log(bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)));
+    // check if user exists
+
+    User.findAndCountAll({ where: { email: req.body.email } })
+    .then(data => {
+        if (data.count !== 0) {
+            res.send({ error: "Email already exists" });
+        }
+    })
+    .catch(error => console.log(error));
+
+    const hashedPassword = (bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)));
 
     let user = {
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: hashedPassword
     };
 
     User.create(user)
     .then(data => {
-        console.log(data);
-        res.send(data);
+        // create and sign token
+        const payload = {
+            id: data.id,
+            name: data.name,
+            email: data.email
+        };
+
+        jwt.sign(
+            payload, 
+            SECRET, 
+            { expiresIn: 3600 },
+            (error, token) => {
+                if (error) throw error;
+
+                res.send({token});
+            }
+        );
+        
     })
     .catch(error => res.send(error));   
 }
