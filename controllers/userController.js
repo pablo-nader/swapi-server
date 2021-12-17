@@ -123,7 +123,7 @@ exports.create = (req, res) => {
             (error, token) => {
                 if (error) throw error;
 
-                res.send({token, payload});
+                res.send({token, user: payload});
             }
         );
         
