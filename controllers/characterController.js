@@ -86,6 +86,7 @@ exports.create = (req, res) => {
     const imgFile = req.file.originalname.replace(/[ ()]/g, '');
     let char = {
         name: req.body.name,
+        description: req.body.description,
         height: req.body.height,
         mass: req.body.mass,
         hair_color: req.body.hair_color,
@@ -130,6 +131,7 @@ exports.edit = (req, res) => {
             if (char) {
                 char.name = req.body.name;
                 char.height = req.body.height;
+                char.description = req.body.description;
                 char.mass = req.body.mass;
                 char.hair_color = req.body.hair_color;
                 char.skin_color = req.body.skin_color;

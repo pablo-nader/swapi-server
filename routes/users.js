@@ -12,8 +12,8 @@ const userController = require('../controllers/userController');
 router.get('/', userController.index);
 
 // View One User
-// /api/users/{id}
-router.get('/:id', userController.get);
+// /api/users/{email}
+router.get('/:email', userController.get);
 
 // Create User
 // POST /api/users
@@ -21,14 +21,14 @@ router.post('/create', userController.create);
 
 // Update User
 // PUT /api/users
-router.put('/edit/:id', userController.edit);
+router.put('/edit/:email', userController.edit);
 
 // Delete User
 // DELETE /api/users
-router.delete('/delete/:id', userController.destroy);
+router.delete('/delete/:email', userController.destroy);
 
 // Restore User
 // PUT /api/users
-router.put('/restore/:id', userController.restore);
+router.put('/restore/:email', userController.restore);
 
 module.exports = router;
