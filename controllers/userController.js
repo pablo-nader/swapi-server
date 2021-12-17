@@ -86,11 +86,12 @@ exports.get = (req, res) => {
 // body
 exports.create = (req, res) => {
     let salt = bycript.genSalt(10);
-
+    console.log(bycript.hash(req.body.password, salt));
+    
     let user = {
         name: req.body.name,
         email: req.body.email,
-        password: bycript.hash(req.body.password, salt),
+        password: req.body.password,
     };
 
     User.create(user)
