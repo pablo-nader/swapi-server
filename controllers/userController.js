@@ -119,11 +119,11 @@ exports.create = (req, res) => {
         jwt.sign(
             payload, 
             SECRET_KEY, 
-            { expiresIn: 3600 },
+            { expiresIn: 7200 }, // 2 hours
             (error, token) => {
                 if (error) throw error;
 
-                res.send({token});
+                res.send({token, payload});
             }
         );
         
