@@ -208,6 +208,7 @@ exports.login = (req, res) => {
     User.findAndCountAll({ where: { email: req.body.email } })
     .then(data => {
         if (data.count === 1) {
+            console.log(data);
             if (data.password === hashedPassword) {
                 // create and sign token
                 const payload = {
