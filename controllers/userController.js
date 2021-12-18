@@ -203,11 +203,12 @@ exports.restore = (req, res) => {
 }
 
 exports.login = (req, res) => {
-    console.log(req.body);
     const hashedPassword = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
 
     User.findAndCountAll({ where: { email: req.body.email } })
     .then(data => {
+        console.log("data---------------");
+        console.log(data);
         if (data.count === 1) {
             if (password === hashedPassword) {
                 // create and sign token
