@@ -132,35 +132,32 @@ exports.create = (req, res) => {
 }
 
 // body
-exports.edit = (req, res) => {
-    let email = req.params.email;
+exports.edit = async (req, res) => {
     if (req.params.email.length > 0) {
-        User.findOne({ where: { email: req.body.email }})
-        .then(data => {
-            if (data.count !== 0) {
-                res.send({ details: "Email already exists" });
-            }
-        })
-        .catch(error => console.log(error));
+        let user = await User.findOne({ where: { email: req.params.email }});
 
-        User.findOne({ where: { email: req.body.email }})
-        .then(user => {
-            if (user) {
-                user.name = req.body.name;
-                user.password = req.body.password;
-                user.email = req.body.email;
-  
-                user.save()
-                .then(data => res.send(data))
-                .catch(error => console.log(error));
-            } else {
-                res.send({ details: "Email Not Found" });
+        if (user) {
+            if (req.body.email) user.email = req.body.email;
+            if (req.body.name) user.name = req.body.name;
+            if (req.body.password) {
+                const hashedPassword = (bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)));
+                user.password = hashedPassword;
             }
-        })
-        .catch(error => res.send(error));
+
+            user.save()
+            .then(res => {
+                res.send(user);
+            })
+            .catch(error => {
+                res.send({ error });
+            })
+
+        } else {
+            // Bad Request
+            res.send({ error: "User Not Found"});
+        }
     } else {
-        // Bad Request
-        res.send({ details: "Email Not Found"});
+        res.send({ error: "Email is invalid"});
     }
 }
 
