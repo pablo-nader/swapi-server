@@ -206,7 +206,7 @@ exports.login = (req, res) => {
     User.findAndCountAll({ where: { email: req.body.email } })
     .then(data => {
         if (data.count === 1) {
-            if (bcrypt.compareSync(data.rows[0].password)) {
+            if (bcrypt.compareSync(req.body.password, data.rows[0].password)) {
                 // create and sign token
                 const payload = {
                     id: data.rows[0].id,
