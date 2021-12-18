@@ -145,11 +145,11 @@ exports.edit = async (req, res) => {
             }
 
             user.save()
-            .then(res => {
-                res.send(user);
+            .then(data => {
+                res.send(data);
             })
             .catch(error => {
-                res.send({ error: "this" });
+                res.send(error);
             })
 
         } else {
