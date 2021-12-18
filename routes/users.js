@@ -31,4 +31,8 @@ router.delete('/delete/:email', userController.destroy);
 // PUT /api/users
 router.put('/restore/:email', userController.restore);
 
+// Login
+// POST /api/users/login
+router.post('/login', userController.login);
+
 module.exports = router;

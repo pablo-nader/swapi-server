@@ -201,3 +201,37 @@ exports.restore = (req, res) => {
         res.send({ details: "Not Found"});
     }
 }
+
+exports.login = (req, res) => {
+    const hashedPassword = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+
+    User.findAndCountAll({ where: { email: req.body.email } })
+    .then(data => {
+        if (data.count === 1) {
+            if (password === hashedPassword) {
+                // create and sign token
+                const payload = {
+                    id: data.id,
+                    name: data.name,
+                    email: data.email
+                };
+
+                jwt.sign(
+                    payload, 
+                    SECRET_KEY, 
+                    { expiresIn: 7200 }, // 2 hours
+                    (error, token) => {
+                        if (error) throw error;
+
+                        res.send({token, user: payload});
+                    }
+                );
+            } else {
+                res.send({ error: "The password is invalid"});
+            }
+        } else {
+            res.send({ error: "The email is invalid"});
+        }
+    })
+    .catch(error => res.send(error));
+}
