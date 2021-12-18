@@ -149,7 +149,7 @@ exports.edit = async (req, res) => {
                 res.send(user);
             })
             .catch(error => {
-                res.send({ error });
+                res.send({ error: "this" });
             })
 
         } else {
