@@ -208,13 +208,13 @@ exports.login = (req, res) => {
     User.findAndCountAll({ where: { email: req.body.email } })
     .then(data => {
         if (data.count === 1) {
-            console.log(data.rows[0]);
-            if (data.password === hashedPassword) {
+            
+            if (data.rows[0].password === hashedPassword) {
                 // create and sign token
                 const payload = {
-                    id: data.id,
-                    name: data.name,
-                    email: data.email
+                    id: data.rows[0].id,
+                    name: data.rows[0].name,
+                    email: data.rows[0].email
                 };
 
                 jwt.sign(
