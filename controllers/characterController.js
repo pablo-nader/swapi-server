@@ -118,9 +118,14 @@ exports.edit = (req, res) => {
     
     let id = req.params.id;
     if (!isNaN(id) && id > 0) {
-        Character.findAndCountAll({ where: { name: req.body.name }})
+        Character.findAndCountAll({ where: { 
+            name: req.body.name,
+            id: {
+                [Op.ne]: req.params.id
+            }
+        }})
         .then(data => {
-            if (data.count !== 0 && data.rows[0].dataValues.id !== id) {
+            if (data.count !== 0) {
                 res.send({ details: "Name already exists" });
             }
         })
