@@ -120,7 +120,7 @@ exports.edit = (req, res) => {
     if (!isNaN(id) && id > 0) {
         Character.findAndCountAll({ where: { name: req.body.name }})
         .then(data => {
-            if (data.count !== 0) {
+            if (data.count !== 0 && data.rows[0].id !== id) {
                 res.send({ details: "Name already exists" });
             }
         })
