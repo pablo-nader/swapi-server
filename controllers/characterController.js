@@ -121,7 +121,7 @@ exports.edit = (req, res) => {
         Character.findAndCountAll({ where: { name: req.body.name }})
         .then(data => {
             console.log(data.count);
-            console.log(data.rows[0]);
+            console.log(data.rows[0].Character.dataValues);
             console.log(id);
             if (data.count !== 0 && data.rows[0].id !== id) {
                 res.send({ details: "Name already exists" });
