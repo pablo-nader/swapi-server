@@ -1637,7 +1637,7 @@ const characterSeeder = [ Character, [
         "starships": [], 
         "created": "2014-12-20T20:35:04.260000Z", 
         "edited": "2014-12-20T21:17:50.498000Z", 
-        "image": "Sly-Moore.jpg",
+        "image": "Tion-Medon.jpg",
         "url": 83,
         "description" : "Greeting Obi-Wan Kenobi during his search for General Grievous on windswept Utapau was Port Administrator Tion Medon. The tall, gaunt Utapaun initially feigned ignorance about Grievous' whereabouts, but then whispered a warning to Kenobi. Grievous was indeed on the planet, hiding on the tenth level of the sinkhole city with an army of thousands of battle droids."
     }

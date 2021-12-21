@@ -169,7 +169,7 @@ const vehicleSeeder = [ Vehicle, [
         "films": [ 2 ], 
         "created": "2014-12-15T12:58:50.530000Z", 
         "edited": "2014-12-20T21:30:21.681000Z", 
-        "image": "Sail_Barge.png",
+        "image": "Armored-Assault-Tank.jpg",
         "url": 20
     }, 
     {
