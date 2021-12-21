@@ -1617,7 +1617,7 @@ const characterSeeder = [ Character, [
         "starships": [], 
         "created": "2014-12-20T20:18:37.619000Z", 
         "edited": "2014-12-20T21:17:50.496000Z", 
-        "image": null,
+        "image": "Sly-Moore.jpg",
         "url": 82,
         "description" : "A pale Umbaran, Sly Moore served as Palpatine’s senior administrative aide during his chancellorship, attending to countless affairs of state. Moore’s enigmatic silence made her the object of considerable curiosity on Coruscant, with rumors abounding about her past and mysterious abilities she supposedly possessed."
     }, 
@@ -1637,7 +1637,7 @@ const characterSeeder = [ Character, [
         "starships": [], 
         "created": "2014-12-20T20:35:04.260000Z", 
         "edited": "2014-12-20T21:17:50.498000Z", 
-        "image": null,
+        "image": "Sly-Moore.jpg",
         "url": 83,
         "description" : "Greeting Obi-Wan Kenobi during his search for General Grievous on windswept Utapau was Port Administrator Tion Medon. The tall, gaunt Utapaun initially feigned ignorance about Grievous' whereabouts, but then whispered a warning to Kenobi. Grievous was indeed on the planet, hiding on the tenth level of the sinkhole city with an army of thousands of battle droids."
     }
